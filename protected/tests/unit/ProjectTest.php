@@ -61,18 +61,25 @@ class ProjectTest extends CDbTestCase
 	                     $newProjectName = 'Test Project Creation'; 
 	                     $newProject->setAttributes(array( 
 	                                                  'name' => $newProjectName, 
-	                                                                      'description' => 'This is a test for new project creation', 
-	                                                                      'createTime' => '2009-09-09 00:00:00', 
-	                                                                      'createUser' => '1', 
-	                                                                      'updateTime' => '2009-09-09 00:00:00', 
-	                                                                      'updateUser' => '1', 
+	                                                  'description' => 'This is a test for new project creation', 	                                                                     
 	                                              )); 
-	                                          $this->assertTrue($newProject->save(false)); 
+	                                                                                           
+                                                   //set the application user id to the first user in our users fixture data
+                                                   Yii::app()->user->setId($this->users('user1')->id);
+                                                
+                                                   //save the new project, triggering attribute validation                                                                                          
+                                                    $this->assertTrue($newProject->save());
+
 
 	                                          //READ back the newly created Project to ensure the creation worked 
 	                                          $retrievedProject=Project::model()->findByPk($newProject->id); 
 	                                          $this->assertTrue($retrievedProject instanceof Project); 
 	                                          $this->assertEquals($newProjectName,$retrievedProject->name); 
+                                                 
+                                                   //ensure the user associated with creating the new project is the same as the applicaiton user we set
+                                                  //when saving the project
+                                                  
+                                                  $this->assertEquals(Yii::app()->user->id, $retrievedProject->create_user_id);
 
 
 	              } 
