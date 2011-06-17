@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "tbl_issue".
  */
-class Issue extends CActiveRecord
+class Issue extends TrackStarActiveRecord
 {
 	
 	const TYPE_BUG=0;
@@ -56,10 +56,10 @@ class Issue extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('project_id, type_id, status_id, owner_id, requester_id, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			//array('project_id, type_id, status_id, owner_id, requester_id, create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>256),
 			array('description', 'length', 'max'=>2000),
-			array('create_time, update_time', 'safe'),
+			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, description, project_id, type_id, status_id, owner_id, requester_id, create_time, create_user_id, update_time, update_user_id', 'safe', 'on'=>'search'),
