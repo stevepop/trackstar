@@ -57,8 +57,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=trackstar',
 			'emulatePrepare' => true,
-			'username' => 'steve',
-			'password' => 'stevedba',
+			'username' => 'trackstar',
+			'password' => 'trackstar',
 			'charset' => 'utf8',
 		),
 		
