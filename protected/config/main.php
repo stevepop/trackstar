@@ -41,7 +41,11 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		
+
+                'authManager'=>array(
+                    'class'=>'CDbAuthManager',
+                    'connectionID'=>'db',
+                    ),
 		
 		'db'=>array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=trackstar_dev_2',

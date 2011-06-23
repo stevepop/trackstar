@@ -19,8 +19,8 @@ return CMap::mergeArray(
                   'db'=>array(
                         'connectionString' => 'mysql:host=localhost;dbname=trackstar_test',
                         'emulatePrepare' => true,
-                        'username' => 'steve',
-                        'password' => 'stevedba',
+                        'username' => 'trackstar',
+                        'password' => 'trackstar',
                         'charset' => 'utf8',
                 ),
 
